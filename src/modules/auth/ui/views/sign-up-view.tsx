@@ -19,6 +19,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 const formSchema = z
   .object({
     name: z.string().min(1, { message: "Name is required" }),
@@ -165,17 +166,27 @@ export const SignUpView = () => {
                     disabled={pending}
                     variant={"outline"}
                     type="button"
+                    onClick={() =>
+                      authClient.signIn.social({
+                        provider: "google",
+                      })
+                    }
                     className="w-full"
                   >
-                    Google
+                    <FaGoogle />
                   </Button>
                   <Button
                     disabled={pending}
                     variant={"outline"}
                     type="button"
+                    onClick={() =>
+                      authClient.signIn.social({
+                        provider: "github",
+                      })
+                    }
                     className="w-full"
                   >
-                    Github
+                    <FaGithub />
                   </Button>
                 </div>
                 <div className="text-center text-sm">
@@ -210,3 +221,5 @@ export const SignUpView = () => {
     </div>
   );
 };
+
+// http://localhost:3000/api/auth/callback/github

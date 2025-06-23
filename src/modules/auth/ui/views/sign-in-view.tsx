@@ -19,6 +19,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(1, { message: "Password is required" }),
@@ -125,17 +126,27 @@ export const SignInView = () => {
                     disabled={pending}
                     variant={"outline"}
                     type="button"
+                    onClick={() =>
+                      authClient.signIn.social({
+                        provider: "google",
+                      })
+                    }
                     className="w-full"
                   >
-                    Google
+                    <FaGoogle />
                   </Button>
                   <Button
                     disabled={pending}
                     variant={"outline"}
+                    onClick={() =>
+                      authClient.signIn.social({
+                        provider: "github",
+                      })
+                    }
                     type="button"
                     className="w-full"
                   >
-                    Github
+                    <FaGithub />
                   </Button>
                 </div>
                 <div className="text-center text-sm">
