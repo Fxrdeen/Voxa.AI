@@ -41,10 +41,7 @@ export const DashboardUserButton = () => {
   if (isMobile) {
     return (
       <Drawer>
-        <DrawerTrigger
-          className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-between bg-white/5 hover:bg-white/10 overflow-hidden"
-          asChild
-        >
+        <DrawerTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-between bg-white/5 hover:bg-white/10 overflow-hidden">
           {data.user.image ? (
             <Avatar>
               <AvatarImage src={data.user.image} />
@@ -61,23 +58,23 @@ export const DashboardUserButton = () => {
             <p className="text-xs truncate w-full">{data.user.email}</p>
           </div>
           <ChevronDownIcon className="size-4 shrink-0" />
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle>{data.user.name}</DrawerTitle>
-              <DrawerTitle>{data.user.email}</DrawerTitle>
-            </DrawerHeader>
-            <DrawerFooter>
-              <Button onClick={() => {}} variant="outline" size="sm">
-                <CreditCardIcon className="size-4 text-black" />
-                Billing
-              </Button>
-              <Button onClick={onLogout} variant="outline" size="sm">
-                <LogOutIcon className="size-4 text-black" />
-                Logout
-              </Button>
-            </DrawerFooter>
-          </DrawerContent>
         </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>{data.user.name}</DrawerTitle>
+            <DrawerTitle>{data.user.email}</DrawerTitle>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button onClick={() => {}} variant="outline" size="sm">
+              <CreditCardIcon className="size-4 text-black" />
+              Billing
+            </Button>
+            <Button onClick={onLogout} variant="outline" size="sm">
+              <LogOutIcon className="size-4 text-black" />
+              Logout
+            </Button>
+          </DrawerFooter>
+        </DrawerContent>
       </Drawer>
     );
   }
