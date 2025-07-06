@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useTRPC } from "@/trpc/client";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import { useMutation } from "@tanstack/react-query";
+import { CallUI } from "./call-ui";
 interface Props {
   meetingId: string;
   meetingName: string;
@@ -33,7 +34,7 @@ export const CallConnect = ({
   const [client, setClient] = useState<StreamVideoClient>();
   useEffect(() => {
     const _client = new StreamVideoClient({
-      apiKey: process.env.NEXT_PUBLIC_STREAM_API_KEY!,
+      apiKey: process.env.NEXT_PUBLIC_STREAM_VIDEO_API_KEY!,
       user: {
         id: userId,
         name: userName,
@@ -41,6 +42,7 @@ export const CallConnect = ({
       },
       tokenProvider: generateToken,
     });
+    setClient(_client);
     return () => {
       _client.disconnectUser();
       setClient(undefined);
@@ -73,7 +75,7 @@ export const CallConnect = ({
   return (
     <StreamVideo client={client}>
       <StreamCall call={call}>
-        <CallUI />
+        <CallUI meetingName={meetingName} />
       </StreamCall>
     </StreamVideo>
   );
