@@ -18,7 +18,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DashboardUserButton } from "./dashboard-user-button";
-
+import { DashBoardTrial } from "./dashboard-trial";
 const firstSection = [
   {
     icon: VideoIcon,
@@ -112,6 +112,7 @@ export const DashboardSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="text-white">
+        <DashBoardTrial />
         <DashboardUserButton />
       </SidebarFooter>
     </Sidebar>
