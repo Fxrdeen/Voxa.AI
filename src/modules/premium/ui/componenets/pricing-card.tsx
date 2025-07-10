@@ -49,8 +49,6 @@ const pricingCardBadgeVariants = cva("text-black text-xs font-normal p-1", {
   },
 });
 
-interface Props extends VariantProps<typeof pricingCardVariants> {}
-
 interface Props extends VariantProps<typeof pricingCardVariants> {
   badge?: string | null;
   price: number;

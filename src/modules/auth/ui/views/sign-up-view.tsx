@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
   FormField,
   FormItem,
   FormLabel,
@@ -204,7 +203,7 @@ export const SignUpView = () => {
 
           <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center">
             <img src="/logo.svg" alt="Image" className="h-[92px] w-[92px]" />
-            <p className="text-2xl font-semibold text-white">Meet.AI</p>
+            <p className="text-2xl font-semibold text-white">Voxa.AI</p>
           </div>
         </CardContent>
       </Card>

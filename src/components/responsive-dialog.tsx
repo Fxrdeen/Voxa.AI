@@ -1,12 +1,8 @@
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
-  DialogOverlay,
-  DialogPortal,
 } from "./ui/dialog";
 
 import { useIsMobile } from "@/hooks/use-mobile";
